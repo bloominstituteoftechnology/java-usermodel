@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User
+public class User extends Auditable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,13 +23,18 @@ public class User
     private String username;
 
     @Column(nullable = false)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)// Never write out a password in Json
     private String password;
 
     @Column(nullable = false,
             unique = true)
-    @Email
+    @Email//validation anotation makes sure email is in the correct format like @ in the address etc
     private String primaryemail;
+
+    @OneToMany(mappedBy = "user",
+    cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
+    private List<UserRoles> userroles = new ArrayList<>();
 
     @OneToMany(mappedBy = "user",
                cascade = CascadeType.ALL,
@@ -43,23 +48,26 @@ public class User
 
     public User(String username,
                 String password,
-                String primaryemail)
+                String primaryemail,
+                List<UserRoles> userRoles)
     {
         setUsername(username);
         setPassword(password);
         this.primaryemail = primaryemail;
+        for (UserRoles ur : userRoles)
+        {
+            ur.setUser(this);
+        }
+        this.userroles = userRoles;
     }
-
     public long getUserid()
     {
         return userid;
     }
-
     public void setUserid(long userid)
     {
         this.userid = userid;
     }
-
     public String getUsername()
     {
         if (username == null) // this is possible when updating a user
@@ -70,12 +78,10 @@ public class User
             return username.toLowerCase();
         }
     }
-
     public void setUsername(String username)
     {
         this.username = username.toLowerCase();
     }
-
     public String getPrimaryemail()
     {
         if (primaryemail == null) // this is possible when updating a user
@@ -86,29 +92,32 @@ public class User
             return primaryemail.toLowerCase();
         }
     }
-
     public void setPrimaryemail(String primaryemail)
     {
         this.primaryemail = primaryemail.toLowerCase();
     }
-
     public String getPassword()
     {
         return password;
     }
-
     public void setPassword(String password)
     {
         this.password = password;
     }
-
     public List<Useremail> getUseremails()
     {
         return useremails;
     }
-
     public void setUseremails(List<Useremail> useremails)
     {
         this.useremails = useremails;
+    }
+    public List<UserRoles> getUserroles()
+    {
+        return userroles;
+    }
+    public void setUserroles(List<UserRoles> userroles)
+    {
+        this.userroles = userroles;
     }
 }

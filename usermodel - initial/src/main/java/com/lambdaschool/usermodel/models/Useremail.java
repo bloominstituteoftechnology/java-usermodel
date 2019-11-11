@@ -7,8 +7,8 @@ import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "useremails",
-       uniqueConstraints = {@UniqueConstraint(columnNames = {"userid", "useremail"})})
-public class Useremail
+       uniqueConstraints = {@UniqueConstraint(columnNames = {"userid", "useremail"})})//@UniqueConstraint makes sure the combination of userid and useremail are unique in the database
+public class Useremail extends Auditable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

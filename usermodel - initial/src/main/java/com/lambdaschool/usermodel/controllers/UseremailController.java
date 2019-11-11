@@ -75,5 +75,5 @@ public class UseremailController
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    // note emails are added through the user process
+    // note emails are added through the usercontroller process
 }

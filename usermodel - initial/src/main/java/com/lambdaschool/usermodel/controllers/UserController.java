@@ -172,8 +172,8 @@ public class UserController
             @PathVariable
                     long roleid)
     {
-        //        userService.deleteUserRole(userid,
-        //                                   roleid);
+               userService.deleteUserRole(userid,
+                                         roleid);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -187,9 +187,16 @@ public class UserController
             @PathVariable
                     long roleid)
     {
-        //        userService.addUserRole(userid,
-        //                                roleid);
+               userService.addUserRole(userid,
+                                      roleid);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    //http://localhost:2019/users/user/email/count //gives list of user emails
+    @GetMapping(value = "/user/email/count", produces = {"application/json"})
+    public ResponseEntity<?> getNumUserEmails()
+    {
+        return new ResponseEntity<>(userService.getCountUserEmails(), HttpStatus.OK);
     }
 }

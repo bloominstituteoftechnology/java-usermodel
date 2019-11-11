@@ -1,6 +1,7 @@
 package com.lambdaschool.usermodel.services;
 
 import com.lambdaschool.usermodel.models.User;
+import com.lambdaschool.usermodel.view.UserNameCountEmails;
 
 import java.util.List;
 
@@ -26,4 +27,6 @@ public interface UserService
 
     void addUserRole(long userid,
                      long roleid);
+
+    List<UserNameCountEmails> getCountUserEmails();
 }

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 // @EnableJpaAuditing
 @SpringBootApplication
-public class StartHereApplication
+public class UserModelApplication
 {
     private static final Logger logger = LoggerFactory.getLogger(com.lambdaschool.usermodel.UserModelApplication.class);
     private static boolean stop = false;
@@ -37,7 +37,8 @@ public class StartHereApplication
 
         if (!stop)
         {
-            ApplicationContext ctx = SpringApplication.run(com.lambdaschool.usermodel.UserModelApplication.class, args);
+            ApplicationContext ctx = SpringApplication.run(com.lambdaschool.usermodel.UserModelApplication.class,
+                                                           args);
 
             DispatcherServlet dispatcherServlet = (DispatcherServlet) ctx.getBean("dispatcherServlet");
             dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);

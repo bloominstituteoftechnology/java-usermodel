@@ -25,7 +25,7 @@ public class UserController
     // http://localhost:2019/users/users
     @GetMapping(value = "/users",
                 produces = {"application/json"})
-    public ResponseEntity<?> listAllUsers()
+    public ResponseEntity<?> reallyListAllUsers()
     {
         List<User> myUsers = userService.findAll();
         return new ResponseEntity<>(myUsers,
@@ -191,5 +191,14 @@ public class UserController
                                 roleid);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    // http://localhost:2019/users/user/email/count
+    @GetMapping(value = "/user/email/count",
+                produces = {"application/json"})
+    public ResponseEntity<?> getNumUserEmails()
+    {
+        return new ResponseEntity<>(userService.getCountUserEmails(),
+                                    HttpStatus.OK);
     }
 }

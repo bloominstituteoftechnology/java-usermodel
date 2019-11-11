@@ -64,7 +64,8 @@ public class RoleServiceImpl implements RoleService
 
     @Transactional
     @Override
-    public Role update(long id, Role role)
+    public Role update(long id,
+                       Role role)
     {
         if (role.getName() == null)
         {
@@ -79,10 +80,10 @@ public class RoleServiceImpl implements RoleService
 
         Role newRole = findRoleById(id); // see if id exists
 
-        rolerepos.updateRoleName(id, role.getName());
+        rolerepos.updateRoleName(id,
+                                 role.getName());
         return findRoleById(id);
     }
-
 
 
     @Transactional

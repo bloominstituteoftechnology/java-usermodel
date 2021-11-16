@@ -6,14 +6,14 @@ Please take a moment to reflect on what you have previously learned and hope to 
 
 #### Daily Resources
 
-* [Guided Project Starter](https://github.com/LambdaSchool/java-usermodel/tree/master/usermodel_initial)
+* [Guided Project Starter](https://github.com/BloomInstituteOfTechnology/java-usermodel/tree/master/usermodel_initial)
 * [Slido](https://app.sli.do/event/XXXXXXXX)
 * [Zoom like](https://lambdaschool.zoom.us/j/#########)
 
 #### Slack Message
 
 @channel
-For the Java class today, I will start from the application found in [https://github.com/LambdaSchool/java-usermodel/tree/master/usermodel_initial](https://github.com/LambdaSchool/java-usermodel/tree/master/usermodel_initial). So, you will need copy of this in order to follow along!
+For the Java class today, I will start from the application found in [https://github.com/BloomInstituteOfTechnology/java-usermodel/tree/master/usermodel_initial](https://github.com/BloomInstituteOfTechnology/java-usermodel/tree/master/usermodel_initial). So, you will need copy of this in order to follow along!
 The Java Class will be starting in 3 minutes at (https://lambdaschool.zoom.us/j/#########)
 Please post questions to the Slido link at (https://app.sli.do/event/XXXXXXXX)
 
